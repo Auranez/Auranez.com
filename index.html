@@ -1,76 +1,235 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Auranez AI</title>
+
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#07070a;
-color:white;
-text-align:center;
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#07070a;
+  color:white;
 }
+
 .container{
-width:100%;
-max-width:900px;
-padding:40px 24px;
+  width:100%;
+  max-width:1100px;
+  margin:auto;
+  padding:0 24px;
 }
+
+nav{
+  height:80px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
 .logo{
-font-size:18px;
-letter-spacing:4px;
-text-transform:uppercase;
-opacity:.7;
-margin-bottom:50px;
+  font-size:18px;
+  letter-spacing:5px;
+  opacity:.8;
 }
+
+.nav-button{
+  color:white;
+  text-decoration:none;
+  border:1px solid #33333d;
+  padding:10px 18px;
+  border-radius:25px;
+  font-size:14px;
+}
+
+.hero{
+  min-height:calc(100vh - 80px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.hero-content{
+  max-width:850px;
+  padding:70px 0;
+}
+
+.badge{
+  display:inline-block;
+  padding:9px 16px;
+  border:1px solid #30303a;
+  border-radius:30px;
+  color:#a7a7b2;
+  font-size:14px;
+  margin-bottom:30px;
+}
+
 h1{
-font-size:clamp(48px,12vw,92px);
-margin:0;
-letter-spacing:-4px;
-background:linear-gradient(90deg,#fff,#9aa7ff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+  font-size:clamp(50px,12vw,100px);
+  line-height:.95;
+  margin:0;
+  letter-spacing:-5px;
+  background:linear-gradient(90deg,#ffffff,#9aa7ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
+
 .subtitle{
-font-size:clamp(20px,5vw,32px);
-margin:24px 0 16px;
+  font-size:clamp(22px,5vw,36px);
+  margin:30px 0 20px;
 }
-.text{
-color:#9b9ba5;
-font-size:17px;
-line-height:1.6;
-max-width:600px;
-margin:0 auto 35px;
+
+.description{
+  max-width:650px;
+  margin:0 auto 35px;
+  color:#9b9ba5;
+  font-size:18px;
+  line-height:1.7;
 }
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
 .button{
-display:inline-block;
-padding:16px 32px;
-border-radius:40px;
-background:white;
-color:#08080a;
-font-weight:bold;
-text-decoration:none;
-font-size:17px;
+  display:inline-block;
+  padding:16px 30px;
+  border-radius:40px;
+  background:white;
+  color:#08080a;
+  font-weight:bold;
+  text-decoration:none;
+  font-size:17px;
 }
-.footer{
-margin-top:70px;
-font-size:13px;
-color:#55555f;
+
+.button.secondary{
+  background:transparent;
+  color:white;
+  border:1px solid #3a3a45;
+}
+
+section{
+  padding:100px 0;
+}
+
+.section-title{
+  text-align:center;
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+.section-text{
+  text-align:center;
+  color:#92929d;
+  max-width:650px;
+  margin:0 auto 50px;
+  line-height:1.6;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card{
+  background:#101014;
+  border:1px solid #24242c;
+  border-radius:24px;
+  padding:30px;
+}
+
+.card-icon{
+  font-size:30px;
+  margin-bottom:20px;
+}
+
+.card h3{
+  margin:0 0 12px;
+  font-size:21px;
+}
+
+.card p{
+  color:#92929d;
+  line-height:1.6;
+  margin:0;
+}
+
+.cta{
+  text-align:center;
+  padding:110px 20px;
+  border-top:1px solid #202027;
+}
+
+.cta h2{
+  font-size:clamp(34px,7vw,60px);
+  margin:0 0 20px;
+}
+
+.cta p{
+  color:#92929d;
+  margin-bottom:30px;
+}
+
+footer{
+  border-top:1px solid #202027;
+  padding:30px 0;
+  text-align:center;
+  color:#55555f;
+  font-size:13px;
+}
+
+@media(max-width:700px){
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  section{
+    padding:75px 0;
+  }
+
+  .section-title{
+    font-size:34px;
+  }
+
+  nav{
+    height:70px;
+  }
 }
 </style>
 </head>
 
 <body>
+
 <div class="container">
 
-<div class="logo">Auranez</div>
+<nav>
+  <div class="logo">AURANEZ</div>
+  <a class="nav-button" href="#features">Explore</a>
+</nav>
+
+</div>
+
+<main>
+
+<section class="hero">
+<div class="container">
+<div class="hero-content">
+
+<div class="badge">A NEW GENERATION OF AI</div>
 
 <h1>Auranez AI</h1>
 
@@ -78,18 +237,104 @@ color:#55555f;
 The future of AI starts here.
 </div>
 
-<div class="text">
-A new generation of intelligent tools designed to make everyday life simpler, smarter and more creative.
+<div class="description">
+Intelligent tools designed to make everyday life simpler,
+smarter and more creative.
 </div>
+
+<div class="buttons">
+<a class="button" href="#features">Get Started</a>
+<a class="button secondary" href="#about">Learn More</a>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="features">
+
+<div class="container">
+
+<h2 class="section-title">
+What Auranez AI can do
+</h2>
+
+<p class="section-text">
+A growing ecosystem of intelligent tools created to help people
+work, create and live smarter.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<div class="card-icon">✦</div>
+<h3>Smart Assistant</h3>
+<p>
+Get intelligent help with everyday questions,
+ideas and tasks.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">◈</div>
+<h3>Creative Tools</h3>
+<p>
+Turn ideas into content, concepts and creative
+projects faster.
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">⌁</div>
+<h3>Future Technology</h3>
+<p>
+Discover a new generation of simple and powerful
+AI experiences.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<div class="container">
+
+<h2 class="section-title">
+Built for the future
+</h2>
+
+<p class="section-text">
+Auranez AI is being created as a modern AI platform focused
+on useful tools, simplicity and creativity.
+</p>
+
+</div>
+
+</section>
+
+<div class="cta">
+
+<h2>Ready to explore Auranez?</h2>
+
+<p>
+The journey starts here.
+</p>
 
 <a class="button" href="mailto:hello@auranez.com">
 Get Started
 </a>
 
-<div class="footer">
-© 2026 Auranez AI. All rights reserved.
 </div>
 
-</div>
+</main>
+
+<footer>
+© 2026 Auranez AI. All rights reserved.
+</footer>
+
 </body>
 </html>
