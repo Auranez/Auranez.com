@@ -31,7 +31,7 @@ export default async function handler(req, res) {
     }
 
     return res.status(200).json({
-      answer: data.output_text || "No response"
+      answer: data.output?.[0]?.content?.[0]?.text || "No response"
     });
 
   } catch (error) {
