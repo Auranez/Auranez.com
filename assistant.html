@@ -231,7 +231,7 @@ footer{
 </div>
 
 <script>
-function askAI(){
+async function askAI(){
 
   const question =
     document.getElementById("question").value.trim();
@@ -241,17 +241,42 @@ function askAI(){
 
   if(!question){
     response.style.display="block";
-    response.textContent=
-      "Please write a question first.";
+    response.textContent="Please write a question first.";
     return;
   }
 
   response.style.display="block";
+  response.textContent="Auranez AI is thinking...";
 
-  response.innerHTML=
-    "<strong>Auranez AI</strong><br><br>" +
-    "Your question has been received. " +
-    "The AI engine will be connected here next.";
+  try{
+
+    const result = await fetch("/api/chat",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        question:question
+      })
+    });
+
+    const data = await result.json();
+
+    if(!result.ok){
+      throw new Error(data.error || "Request failed");
+    }
+
+    response.innerHTML =
+      "<strong>Auranez AI</strong><br>" +
+      data.answer;
+
+  }catch(error){
+
+    response.innerHTML =
+      "<strong>Auranez AI</strong><br>" +
+      "Error: " + error.message;
+
+  }
 }
 </script>
 
